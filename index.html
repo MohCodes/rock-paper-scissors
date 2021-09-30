@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type ="button" name= "rock" value = "rock">
+        <input type ="button" name= "paper" value = "paper">
+        <input type ="button" name= "scissors" value = "rock">
+    </form>
+</body>
+
+<script>
+
+    let compPlay
+    function computerPlay (){
+        let options = ["rock", "paper", "scissors"];
+        let random = options [Math.floor(Math.random()*options.length)];
+        return(compPlay = random);
+    }
+    computerPlay();
+
+    let playerSelection = prompt("rock, paper or scissors?").toLowerCase();
+
+    function player(){
+        if (playerSelection == "rock"){
+        return(playerSelection = "rock");
+       }
+        else if(playerSelection == "paper"){
+        return(returnreturnplayerSelection = "paper");
+        }
+        else if(playerSelection == "scissors"){
+        return(playerSelection = "scissors");
+        }
+        else{
+        alert("wrong input pick one of the three, refresh page");
+        }
+    }
+    player();
+
+    let outcome
+    
+    function winner (playerSelection, compPlay){
+        if(playerSelection == "rock" && compPlay == "rock"){
+            outcome= "Draw";
+            alert (outcome);
+        }
+        else if(playerSelection == "rock" && compPlay == "paper"){
+            outcome = "You Lose";
+            alert(outcome);
+        }
+        else if(playerSelection == "rock" && compPlay == "scissors"){
+            outcome = "You Win";
+            alert(outcome);
+        }
+
+
+
+        else if(playerSelection == "paper" && compPlay == "rock"){
+            outcome = "You win";
+            alert(outcome);
+        }
+        else if(playerSelection == "paper" && compPlay == "paper"){
+            outcome = "Draw";
+            alert(outcome);
+        }
+        else if(playerSelection == "paper" && compPlay == "scissors"){
+            outcome = "You Lose";
+            alert(outcome);
+        }
+
+
+
+        else if(playerSelection == "scissors" && compPlay == "rock"){
+            outcome = "You Lose";
+            alert(outcome);
+        }
+        else if(playerSelection == "scissors" && compPlay == "paper"){
+            outcome = "You Win";
+            alert(outcome);
+        }
+        else if(playerSelection == "scissors" && compPlay == "scissors"){
+            outcome = "Draw";
+            alert(outcome);
+    }
+}
+
+function game (playerSelection, compPlay){
+    computerPlay();
+    player();
+    winner(playerSelection, compPlay);
+    return;
+}
+
+game(playerSelection, compPlay);
+
+
+
+
+</script>
+
+</html>

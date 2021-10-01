@@ -1,0 +1,12 @@
+.buttons{
+display:flex;
+border-style: double;
+border-color: aqua;
+height:200px;
+gap:20px;
+justify-content: space-around;
+};
+
+.buttonq{
+    background-color: green;
+}

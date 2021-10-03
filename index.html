@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+    <p class = "title">Make your Choice</p>
     <form>
         <div class = "buttons">
         <input type ="button" id="rock" name= "rock" value = "rock">
@@ -17,7 +18,12 @@
     </form>
     <div class = "ScoreDisplay">
     <p class ="Score">Score</p>
-    <p id ="score"></p>
+    <div class = "scoreBox">
+    <p id ="score1"  class = "ScorePLA"></p>
+    <p id ="score2"  class = "ScorePCC"></p>
+    </div>
+    <p id ="result">results</p>
+    <p id="resultDis"></p>
     </div>
 </body>
 
@@ -31,9 +37,7 @@
     
 
     let playerSelection;
-
-    function player(){
-
+    
     const playerSelectionRock = document.querySelector('#rock');
     playerSelectionRock.addEventListener('click', () =>{
         return(playerSelection = "rock");
@@ -48,7 +52,6 @@
     playerSelectionScissors.addEventListener('click', () =>{
         return(playerSelection = "scissors");
     });
-    }
 /*
    function player(){
         if (playerSelection == "rock"){
@@ -65,64 +68,93 @@
         }
     }
 */
-
+  
+    let outcomes = document.querySelector('resultDis');
     let outcome;
+    let scorePlayer=0;
+    let scorePC=0;
+    
     
     function winner (){
         if(playerSelection == "rock" && compPlay == "rock"){
-            outcome= "Draw";
-            alert (outcome);
+            outcome= "Draw, Computer had rock";
+            resultDis.textContent = outcome;
+
         }
         else if(playerSelection == "rock" && compPlay == "paper"){
-            outcome = "You Lose";
-            alert(outcome);
+            outcome = "You Win, Computer had paper";
+            resultDis.textContent = outcome;
+            scorePC+=1;
         }
-        else if(playerSelection == "rock" && compPlay == "scissors"){
-            outcome = "You Win";
-            alert(outcome);
+        else if(playerSelection == "rock, Computer had scissors" && compPlay == "scissors"){
+            outcome = "You Lose, Computer had scissors";
+            resultDis.textContent = outcome;
+            scorePlayer+=1;
+            
         }
 
 
 
         else if(playerSelection == "paper" && compPlay == "rock"){
-            outcome = "You win";
-            alert(outcome);
+            outcome = "You win, Computer had rock";
+            resultDis.textContent = outcome;
+            scorePlayer+=1;
         }
         else if(playerSelection == "paper" && compPlay == "paper"){
-            outcome = "Draw";
-            alert(outcome);
+            outcome = "Draw, Computer had paper";
+            resultDis.textContent = outcome;
         }
         else if(playerSelection == "paper" && compPlay == "scissors"){
-            outcome = "You Lose";
-            alert(outcome);
+            outcome = "You Lose, Computer had scissors";
+            resultDis.textContent = outcome;
+            scorePC+=1;
         }
 
 
 
         else if(playerSelection == "scissors" && compPlay == "rock"){
-            outcome = "You Lose";
-            alert(outcome);
+            outcome = "You Lose, Computer had rock";
+            resultDis.textContent = outcome;
+            scorePC+=1;
         }
         else if(playerSelection == "scissors" && compPlay == "paper"){
-            outcome = "You Win";
-            alert(outcome);
+            outcome = "You Win, Computer had paper";
+            resultDis.textContent = outcome;
+            scorePlayer+=1;
         }
         else if(playerSelection == "scissors" && compPlay == "scissors"){
-            outcome = "Draw";
-            alert(outcome);
+            outcome = "Draw, Computer had scissors";
+            resultDis.textContent = outcome;
+            
         }
     };
 
 function round(){
     computerPlay();
-    player();
     winner();
+    score1.textContent = scorePlayer;
+    score2.textContent = scorePC;
+    endgame();
 };
 
-document.getElementById("rock").onclick = round();
-document.getElementById("paper").onclick = round();
-document.getElementById("scissors").onclick = round();
 
+
+document.getElementById("rock").onclick = round;
+document.getElementById("paper").onclick = round;
+document.getElementById("scissors").onclick = round;
+
+function endgame (){
+if(scorePC == 5 && scorePlayer < 5){
+    alert("you lose");
+    scorePC = 0;
+    scorePlayer = 0;
+}
+else if(scorePC < 5 && scorePlayer == 5){
+    alert("you win");
+    scorePC = 0;
+    scorePlayer = 0;
+}
+};
 
 </script>
 

@@ -1,12 +1,53 @@
+body{
+    background-image: linear-gradient(to bottom, salmon, yellow);
+    height:603px;
+}
+
+
 .buttons{
 display:flex;
-border-style: double;
-border-color: aqua;
 height:200px;
-gap:20px;
+gap: 20px;
 justify-content: space-around;
-};
+margin: 50px;
 
-.buttonq{
-    background-color: green;
+}
+
+#rock, #paper, #scissors{
+    background-color: grey;
+    width: 250px;
+    border-radius: 50px;
+    height: 150px;
+    border-color: orange;
+    color:orange;
+    font-size: 20px;
+    font-weight: 800;
+    
+}
+
+.ScoreDisplay{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    border-style: double;
+    border-color: green;
+}
+
+#score{
+    border-style: double;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:30px;
+    width:80px;
+    margin:-10px;
+
 }

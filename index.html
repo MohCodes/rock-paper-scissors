@@ -10,15 +10,18 @@
 <body>
     <form>
         <div class = "buttons">
-        <input type ="button" class="buttonq button1" id = "rock" name= "rock" value = "rock">
-        <input type ="button" class="buttonq button2" id = "paper" name= "paper" value = "paper">
-        <input type ="button" class="buttonq button2" id = "scissors" name= "scissors" value = "rock">
+        <input type ="button" id="rock" name= "rock" value = "rock">
+        <input type ="button" id="paper" name= "paper" value = "paper">
+        <input type ="button" id="scissors" name= "scissors" value = "scissors">
         </div>
     </form>
+    <div class = "ScoreDisplay">
+    <p class ="Score">Score</p>
+    <p id ="score"></p>
+    </diV>
 </body>
 
 <script>
-
     let compPlay
     function computerPlay (){
         let options = ["rock", "paper", "scissors"];
@@ -27,9 +30,27 @@
     }
     computerPlay();
 
-    let playerSelection = prompt("rock, paper or scissors?").toLowerCase();
+    let playerSelection;
 
     function player(){
+
+    const playerSelectionRock = document.querySelector('#rock');
+    playerSelectionRock.addEventListener('click', () =>{
+        return(playerSelection = "rock");
+    });
+
+    const playerSelectionPaper = document.querySelector('#paper');
+    playerSelectionPaper.addEventListener('click', () =>{
+        return(playerSelection = "paper");
+    });
+
+    const playerSelectionScissors = document.querySelector('#scissors');
+    playerSelectionScissors.addEventListener('click', () =>{
+        return(playerSelection = "scissors");
+    });
+    }
+/*
+   function player(){
         if (playerSelection == "rock"){
         return(playerSelection = "rock");
        }
@@ -40,12 +61,12 @@
         return(playerSelection = "scissors");
         }
         else{
-        alert("wrong input pick one of the three, refresh page");
+         alert("wrong input pick one of the three, refresh page");
         }
     }
-    player();
+*/
 
-    let outcome
+    let outcome;
     
     function winner (playerSelection, compPlay){
         if(playerSelection == "rock" && compPlay == "rock"){
@@ -89,19 +110,14 @@
         else if(playerSelection == "scissors" && compPlay == "scissors"){
             outcome = "Draw";
             alert(outcome);
-    }
-}
-
-function game (playerSelection, compPlay){
-    computerPlay();
-    player();
-    winner(playerSelection, compPlay);
-    return;
-}
-
-game(playerSelection, compPlay);
+        }
+    };
 
 
+
+document.getElementById("rock").onclick = winner(playerSelection, compPlay);
+document.getElementById("paper").onclick = winner(playerSelection, compPlay);
+document.getElementById("scissors").onclick = winner(playerSelection, compPlay);
 
 
 </script>

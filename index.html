@@ -145,12 +145,12 @@ document.getElementById("scissors").onclick = round;
 
 function endgame (){
 if(scorePC == 5 && scorePlayer < 5){
-    alert("you lose");
+    resultDis.textContent ="You Lose";
     scorePC = 0;
     scorePlayer = 0;
 }
 else if(scorePC < 5 && scorePlayer == 5){
-    alert("you win");
+    resultDis.textContent ="You Win";
     scorePC = 0;
     scorePlayer = 0;
 }

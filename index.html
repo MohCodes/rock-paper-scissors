@@ -18,7 +18,7 @@
     <div class = "ScoreDisplay">
     <p class ="Score">Score</p>
     <p id ="score"></p>
-    </diV>
+    </div>
 </body>
 
 <script>
@@ -28,7 +28,7 @@
         let random = options [Math.floor(Math.random()*options.length)];
         return(compPlay = random);
     }
-    computerPlay();
+    
 
     let playerSelection;
 
@@ -68,7 +68,7 @@
 
     let outcome;
     
-    function winner (playerSelection, compPlay){
+    function winner (){
         if(playerSelection == "rock" && compPlay == "rock"){
             outcome= "Draw";
             alert (outcome);
@@ -113,11 +113,15 @@
         }
     };
 
+function round(){
+    computerPlay();
+    player();
+    winner();
+};
 
-
-document.getElementById("rock").onclick = winner(playerSelection, compPlay);
-document.getElementById("paper").onclick = winner(playerSelection, compPlay);
-document.getElementById("scissors").onclick = winner(playerSelection, compPlay);
+document.getElementById("rock").onclick = round();
+document.getElementById("paper").onclick = round();
+document.getElementById("scissors").onclick = round();
 
 
 </script>
